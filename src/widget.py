@@ -31,7 +31,15 @@ def mask_account_card(data: str) -> str:
         card_type = data[:first_indx].strip()
         card_number = data[first_indx:].strip()
 
+
         # Используем существующую функцию маскировки карты
         masked_num = get_mask_card_number(card_number)
 
         return f"{card_type} {masked_num}"
+
+
+def get_date(date: str) -> str:
+    """
+    Преобразует строку в формат "ДД.ММ.ГГГГ"
+    """
+    return f"{date[8:10]}.{date[5:7]}.{date[0:4]}"
