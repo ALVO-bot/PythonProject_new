@@ -3,6 +3,8 @@ from masks import get_mask_card_number, get_mask_account
 
 def mask_account_card(data: str) -> str:
     data = data.strip()
+    if not data:
+        return ""
 
     # Разделяем строки без явного разделения на аргументы пользователем
     if data.startswith("Счет "):
@@ -16,20 +18,20 @@ def mask_account_card(data: str) -> str:
         return f"{account_type} {masked_num}"
 
     else:
-        # Для карт ищем начало цифр, чтобы отделить описание (Visa Platinum и т.п.) от номера
-        first_digit_idx = None
+        # Для карт ищем начало цифр, чтобы отделить название счета от номера
+        first_indx = None
         for i, char in enumerate(data):
             if char.isdigit():
-                first_digit_idx = i
+                first_indx = i
                 break
 
-        if first_digit_idx is None:
+        if first_indx is None:
             return data
 
-        card_type = data[:first_digit_idx].strip()
-        card_number = data[first_digit_idx:].strip()
+        card_type = data[:first_indx].strip()
+        card_number = data[first_indx:].strip()
 
-        # Переиспользуем существующую функцию маскировки карты
+        # Используем существующую функцию маскировки карты
         masked_num = get_mask_card_number(card_number)
 
         return f"{card_type} {masked_num}"
