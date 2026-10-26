@@ -24,7 +24,7 @@ line-length = 119
 target-version = ['py314']
 exclude = """
 /(
-    \.git
+    /.git
   | \.venv
   | build
   | dist
