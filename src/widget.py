@@ -2,6 +2,7 @@ from masks import get_mask_card_number, get_mask_account
 
 
 def mask_account_card(data: str) -> str:
+    """ Функция которая умеет обрабатывать информацию как о картах, так и о счетах """
     data = data.strip()
     if not data:
         return ""
