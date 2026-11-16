@@ -6,4 +6,4 @@ def filter_by_state(transactions: list[dict], state: str = 'EXECUTED') -> list[d
 
 def sort_by_date(transactions: list[dict], reverse: bool = True) -> list[dict]:
     """ Функция которая возвращает новый список, отсортированный по дате"""
-    return sorted(transactions, key=lambda x: x.get('date'), reverse=reverse)
+    return sorted(transactions, key=lambda x: x.get("date") or "", reverse=reverse)

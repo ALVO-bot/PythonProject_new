@@ -2,8 +2,12 @@ def get_mask_card_number(card_number: str) -> str:
     """Функция которая принимает на вход
     номер карты и возвращает ее маску"""
     clean_number = card_number.replace(" ", "")  # Удаляем пробелы
+
+    if not clean_number:
+        return ""
+
     block_1 = clean_number[:4]
-    block_2 = clean_number[5:7] + "**"
+    block_2 = clean_number[4:6] + "**"
     block_3 = "****"
     block_4 = clean_number[-4:]
 

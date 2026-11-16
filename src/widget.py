@@ -1,4 +1,5 @@
-from masks import get_mask_card_number, get_mask_account
+
+from .masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(data: str) -> str:
@@ -31,7 +32,6 @@ def mask_account_card(data: str) -> str:
 
         card_type = data[:first_indx].strip()
         card_number = data[first_indx:].strip()
-
 
         # Используем существующую функцию маскировки карты
         masked_num = get_mask_card_number(card_number)

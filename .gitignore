@@ -44,3 +44,8 @@ secrets.json
 # ОС
 Thumbs.db
 .DS_Store
+
+# Отчёты покрытия
+htmlcov/
+coverage/
+*.html
